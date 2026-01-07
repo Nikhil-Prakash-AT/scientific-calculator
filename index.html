@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Theme + History Toggle -->
+  <div class="theme-toggle">
+    <button id="themeBtn" aria-label="Toggle theme">🌙</button>
+    <button id="historyBtn" aria-label="Toggle history">📜</button>
+  </div>
+
+  <div class="wrap">
+   <!-- Converter Panel -->
+<div class="converter" id="converterPanel">
+  <h3>↔ Converter</h3>
+  <select id="category">
+    <option value="length">Length</option>
+    <option value="weight">Weight</option>
+    <option value="temperature">Temperature</option>
+  </select>
+
+  <div class="unit-row">
+    <select id="fromUnit"></select>
+    <span>→</span>
+    <select id="toUnit"></select>
+  </div>
+
+  <input type="number" id="convertValue" placeholder="Enter value" />
+  <button class="btn convert-btn" onclick="convertValue()">Convert</button>
+  <div id="convertResult" class="convert-result"></div>
+</div>
+
+
+    <!-- Scientific Panel -->
+    <div class="scientific" id="scientificPanel" aria-hidden="true">
+      <button class="btn sci" onclick="sqrt()">√</button>
+      <button class="btn sci" onclick="insertValue('π')">π</button>
+      <button class="btn sci" onclick="power()">^</button>
+      <button class="btn sci" onclick="factorial()">!</button>
+      <button class="btn sci" onclick="toggleDegRad()" id="degBtn">Deg</button>
+      <button class="btn sci" onclick="insertTrig('sin')">sin</button>
+      <button class="btn sci" onclick="insertTrig('cos')">cos</button>
+      <button class="btn sci" onclick="insertTrig('tan')">tan</button>
+      <button class="btn sci" onclick="insertValue('e')">e</button>
+      <button class="btn sci" onclick="insertValue('ln(')">ln</button>
+      <button class="btn sci" onclick="insertValue('log(')">log</button>
+      <button class="btn sci" onclick="insertValue('(')">(</button>
+      <button class="btn sci" onclick="insertValue(')')">)</button>
+    </div>
+
+    <!-- Main Calculator -->
+    <div class="calculator">
+      <div class="preview" id="preview"></div>
+      <div class="display">
+        <input id="result" type="text" disabled aria-label="Calculator display" />
+      </div>
+
+      <!-- Panel Buttons -->
+      <div class="panel-buttons">
+        <button id="converterBtn" class="expand-btn">↔</button>
+        <button id="expandBtn" class="expand-btn">⮜</button>
+      </div>
+
+      <div class="buttons">
+        <button class="btn" onclick="clearDisplay()">AC</button>
+        <button class="btn" onclick="deleteChar()">⌫</button>
+        <button class="btn" onclick="appendValue('%')">%</button>
+        <button class="btn operator" onclick="appendValue('/')">÷</button>
+        <button class="btn" onclick="appendValue('7')">7</button>
+        <button class="btn" onclick="appendValue('8')">8</button>
+        <button class="btn" onclick="appendValue('9')">9</button>
+        <button class="btn operator" onclick="appendValue('*')">×</button>
+        <button class="btn" onclick="appendValue('4')">4</button>
+        <button class="btn" onclick="appendValue('5')">5</button>
+        <button class="btn" onclick="appendValue('6')">6</button>
+        <button class="btn operator" onclick="appendValue('-')">−</button>
+        <button class="btn" onclick="appendValue('1')">1</button>
+        <button class="btn" onclick="appendValue('2')">2</button>
+        <button class="btn" onclick="appendValue('3')">3</button>
+        <button class="btn operator" onclick="appendValue('+')">+</button>
+        <button class="btn zero" onclick="appendValue('0')">0</button>
+        <button class="btn" onclick="appendValue('.')">.</button>
+        <button class="btn equal" onclick="calculateResult()">=</button>
+      </div>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" id="historyPanel">
+      <h3>📜 History</h3>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
