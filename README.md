@@ -5,6 +5,7 @@ This project combines a clean UI with advanced mathematical functionality, unit 
 
 🚀 Live Demo
 
+   https://nikhil-prakash-at.github.io/scientific-calculator/
 
 ✨ Features
 
